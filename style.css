@@ -17,15 +17,19 @@ body {
 
 .location,
 .temperature {
-  height: 30vh;
+  height: 25vh;
   width: 50%;
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  flex-direction: column;
+}
+
+.temperature-description {
+  font-size: 20px;
 }
 
 .temperature {
-  flex-direction: column;
+  justify-content: space-around;
 }
 
 .degree-section {
@@ -34,11 +38,49 @@ body {
   cursor: pointer;
 }
 
-.degree-section span {
+h4 {
+  position: absolute;
+  bottom: 2%;
+  left: 5%;
+  font-size: 15px;
+  color: rgb(98, 81, 255);
+}
+
+h5 {
+  position: absolute;
+  bottom: 2%;
+  right: 5%;
+  font-size: 15px;
+  color: rgb(98, 81, 255);
+}
+
+a {
+  text-decoration: none;
+  color: rgb(47, 41, 136);
+}
+
+.degree-section span,
+.degree-section p {
   margin: 10px;
-  font-size: 30px;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.location h1 {
+  font-size: 50px;
 }
 
 .degree-section h2 {
-  font-size: 40px;
+  font-size: 60px;
+}
+
+/*Prevents the text from being highlighted when we click stuff on the page*/
+::selection {
+  background: none;
+}
+::-moz-selection {
+  background: none;
+}
+::-webkit-selection {
+  background: none;
 }

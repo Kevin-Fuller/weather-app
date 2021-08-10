@@ -22,7 +22,7 @@ window.addEventListener("load", () => {
           return data.json();
         })
         .then((data) => {
-          console.log(data);
+          //console.log(data);
           const { temp } = data.main;
           const { description, icon } = data.weather[0];
 
@@ -40,14 +40,17 @@ window.addEventListener("load", () => {
               temperatureSpan.textContent = "C";
               temperatureDegree.textContent = kelvinToCelsius(
                 Number(temperatureDegree.textContent)
-              );
+              ).toFixed(2);
             } else if (temperatureSpan.textContent === "C") {
               temperatureSpan.textContent = "F";
               temperatureDegree.textContent = celsiusToFahrenheit(
                 Number(temperatureDegree.textContent)
-              );
+              ).toFixed(2);
             } else {
               temperatureSpan.textContent = "K";
+              temperatureDegree.textContent = fahrenheitToKelvin(
+                Number(temperatureDegree.textContent)
+              ).toFixed(2);
             }
           });
         });
@@ -81,3 +84,17 @@ function celsiusToFahrenheit(number) {
 
 //Test Case: Should return 0
 //console.log(celsiusToFahrenheit("test"));
+
+function fahrenheitToKelvin(number) {
+  if (isNaN(number) === false) {
+    return ((number - 32) * 5) / 9 + 273.15;
+  } else {
+    return 0;
+  }
+}
+
+//Test Case: Should return 280.57222
+//console.log(fahrenheitToKelvin(45.36));
+
+//Test Case: Should return 0
+//console.log(fahrenheitToKelvin("test"));
